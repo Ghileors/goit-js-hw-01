@@ -1,12 +1,23 @@
-function setMessage(total = 0) {
-  let answ = prompt('Введите число', '');
-  if (answ == null) {
-    alert(`Общая сумма чисел равна ${total}`);
-  } else if (isNaN(Number(answ))) {
-    alert('Введите цифру!');
-    setMessage(total);
-  } else {
-    setMessage(total + Number(answ));
+let total = 0;
+
+while (true) {
+  let input = prompt('Введите число:', '');
+
+  if (input === null) {
+    alert('Отменено пользователем.');
+    break;
   }
+
+  input = Number(input);
+
+  const notANumber = Number.isNaN(input);
+
+  if (notANumber) {
+    alert('Введено не число, текущая итерация будет пропущена!');
+    continue;
+  }
+
+  total += input;
 }
-setMessage();
+
+alert(`Общая сумма чисел = ${total}`);
