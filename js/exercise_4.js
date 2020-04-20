@@ -1,7 +1,9 @@
 const pricePerDroid = 300;
 let credits = 23580;
 
-const answ = prompt('Количество дроидов, которое вы хотите приобрести:', '');
+const answ = prompt('Количество дроидов, которое вы хотите приобрести:');
+
+answ = Number(answ);
 
 let totalPrice = pricePerDroid * answ;
 
