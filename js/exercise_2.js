@@ -1,13 +1,27 @@
-const total = 100;
-let ordered = 50;
+const storage = {
+  total: 100,
+  successful: 'Заказ оформлен, с вами свяжется менеджер.',
+  unsuccessful: 'На складе недостаточно твоаров!',
+  error: 'Невалидное значение! Введите целое положительное число.',
 
-const successfulOrder = 'Заказ оформлен, с вами свяжется менеджер';
-const orderError = 'На складе недостаточно твоаров!';
+  displayMessage(ordered) {
+    if (ordered > this.total) {
+      alert(this.unsuccessful);
+    } else if (ordered > 1 && Number.isInteger(ordered)) {
+      alert(this.successful);
+    } else {
+      alert(this.error);
+    }
+  },
+};
 
-ordered = 70;
-
-if (ordered > total) {
-  console.log(orderError);
-} else {
-  console.log(successfulOrder);
-}
+storage.displayMessage(20);
+storage.displayMessage(100);
+storage.displayMessage(101);
+storage.displayMessage(-0);
+// storage.displayMessage('string');
+// storage.displayMessage(null);
+// storage.displayMessage(undefined);
+// storage.displayMessage(false);
+// storage.displayMessage(true);
+// storage.displayMessage(NaN);

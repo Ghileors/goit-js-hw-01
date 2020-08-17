@@ -1,37 +1,25 @@
-const pricePerDroid = 300;
-let credits = 23580;
+const userWallet = {
+  credits: 23580,
+};
 
-let answ = prompt('Количество дроидов, которое вы хотите приобрести:');
+const products = {
+  pricePerDroid: 3000,
+};
 
-let totalPrice = pricePerDroid * Number(answ);
+const purchase = answer => {
+  answer = prompt('Какое количество дроидов вы желаете приобрести?');
+  const totalPrise = products.pricePerDroid * Number(answer);
+  let message;
 
-if (answ === null) {
-  alert('Отменено пользователем!');
-} else if (totalPrice <= credits) {
-  alert(
-    `Вы купили ${totalPrice} дроидов, на счету осталось ${
-      credits - totalPrice
-    } кредитов.`,
-  );
-} else if (totalPrice > credits) {
-  alert('Недостаточно средств на счету!');
-}
-
-/* const numberInputRef = document.querySelector('input[name="number"]');
-const buttonRef = document.querySelector('button');
-
-buttonRef.addEventListener('click', function () {
-  console.log('numberInputRef.value: ', numberInputRef.value);
-
-  const number = Number(numberInputRef.value);
-
-  const result = number * pricePerDroid;
-  const balance = credits - result;
-  if (result < 0) {
-    alert(`Недопустимое количество дроидов!`);
-  } else if (result > credits) {
-    alert(`Недостаточно средств на счету! Ваш баланс ${credits} кредитов.`);
+  if (answer === null) {
+    message = 'Отменено пользователем!';
+  } else if (totalPrise > userWallet.credits) {
+    message = 'Недостаточно средств на счету!';
   } else {
-    alert(`Вы приобрели ${result} дроидов. Остаток на балансе: ${balance}`);
+    const check = userWallet.credits - totalPrise;
+    message = `Вы купили ${answer} дроидов, на счету осталось ${check} кредитов.`;
   }
-}); */
+  alert(message);
+};
+
+purchase();

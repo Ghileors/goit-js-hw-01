@@ -1,29 +1,38 @@
 let answ = prompt('Введите страну доставки', '');
 
-const setMessage = (name, price) =>
+const deliveryCost = {
+  China: 100,
+  Chile: 250,
+  Australia: 170,
+  India: 80,
+  Jamaica: 120,
+};
+
+const setMessage = (name, price) => {
   alert(`Доставка в ${name} будет стоить ${price} кредитов`);
+};
 
 answ = answ.toLocaleLowerCase();
 
 switch (answ) {
   case 'китай':
-    setMessage('Китай', 100);
+    setMessage(answ, deliveryCost.China);
     break;
 
   case 'чили':
-    setMessage('Чили', 100);
+    setMessage(answ, deliveryCost.Chile);
     break;
 
   case 'австралия':
-    setMessage('Австралию', 100);
+    setMessage(answ, deliveryCost.Australia);
     break;
 
   case 'индия':
-    setMessage('Индию', 100);
+    setMessage(answ, deliveryCost.India);
     break;
 
   case 'ямайка':
-    setMessage('Ямайку', 100);
+    setMessage(answ, deliveryCost.Jamaica);
     break;
 
   default:

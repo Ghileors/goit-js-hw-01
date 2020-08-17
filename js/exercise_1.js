@@ -1,8 +1,18 @@
-const name = 'Генератор защитного поля';
-let price = 1000;
+class Product {
+  constructor(name, prise) {
+    this.name = name;
+    this.prise = prise;
+  }
 
-console.log(`Выбран ${name}, цена за штуку ${price} кредитов `);
+  getFullInfo() {
+    alert(`Выбран "${this.name}" цена за штуку: ${this.prise} кредитов`);
+  }
+}
 
-price = 2000;
+const droid = new Product('Генератор защитного поля', 1000);
 
-console.log(`Выбран ${name}, цена за штуку ${price} кредитов `);
+droid.getFullInfo();
+
+const newDroid = new Product('Генератор защитного поля 2', 2000);
+
+newDroid.getFullInfo();
